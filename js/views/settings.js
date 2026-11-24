@@ -3,6 +3,7 @@ import { getSetting, setSetting, getProgress, saveProgress } from "../store.js";
 import { wipeAll } from "../backup.js";
 import { speak, voicesFor } from "../tts.js";
 import { renderDataTools } from "./data-tools.js";
+import { renderAiSettings } from "./ai-settings.js";
 
 const SAVE_FAIL = "Ayar kaydedilemedi (tarayıcı depolaması kapalı olabilir).";
 const save = (key, value) => { if (!setSetting(key, value)) toast(SAVE_FAIL); };
@@ -103,6 +104,7 @@ export async function render(root) {
       selectRow("Renk paleti", "palette", PALETTES.map(([value, label]) => [value, label]), applyPalette),
       selectRow("Tema", "theme", [["system", "Sistem"], ["light", "Açık"], ["dark", "Koyu"]], applyTheme),
       checkRow("Sadece Apple Pencil ile çiz", "penOnly", "(parmak çizmez)")),
+    renderAiSettings(),
     el("section", { class: "card" }, (() => { const box = el("div"); renderDataTools(box); return box; })(),
       checkRow("14 günde bir yedek hatırlat", "backupReminder")),
     el("section", { class: "card" },

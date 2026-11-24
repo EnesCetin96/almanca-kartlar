@@ -1,0 +1,18 @@
+/* Writing assistant (under the note box) and its settings card. Colours come from the palette tokens. */
+.ai-box { margin-top: .75rem; }
+.ai-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.ai-actions small { flex-basis: 100%; }
+.ai-hint { margin: .5rem 0 0; }
+.ai-result:empty { display: none; }
+.ai-result {
+  margin-top: .75rem; padding: .75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); box-shadow: var(--shadow); overflow-wrap: break-word;
+}
+.ai-result p { margin: .35rem 0; }
+.ai-echo { font-style: italic; }
+.ai-verdict { font-weight: 700; }
+.ai-verdict.ok { color: var(--ok); }
+.ai-warn { color: var(--bad); }
+.ai-error { color: var(--bad); background: var(--bad-bg); padding: .5rem .75rem; border-radius: 12px; }
+.ai-line strong { color: var(--text-dim); }
+.setting input[type="password"] { min-width: 0; flex: 1 1 14rem; max-width: 22rem; min-height: var(--tap); padding: 0 .75rem; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--text); font: inherit; }

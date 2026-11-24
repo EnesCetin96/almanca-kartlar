@@ -86,7 +86,7 @@ const SETTINGS_KEY = "settings";
 export const DEFAULT_SETTINGS = Object.freeze({
   ttsRate: 1, voiceDe: null, voiceEn: null, penOnly: true,
   newPerDay: 10, maxReviews: 100, direction: "de-en", strictArticle: true, soundEffects: false,
-  theme: "system", palette: "kahve", lastBackupAt: null, backupReminder: true, backupSnoozedAt: null, firstRunAt: null, installHintDismissed: false,
+  theme: "system", palette: "kahve", aiModel: "haiku", lastBackupAt: null, backupReminder: true, backupSnoozedAt: null, firstRunAt: null, installHintDismissed: false,
 });
 
 function readSettings() {

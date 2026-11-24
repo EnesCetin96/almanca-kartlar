@@ -2,6 +2,7 @@
 import * as db from "./db.js";
 import { validateBackup } from "./importers.js";
 import { DEFAULT_SETTINGS } from "./store.js";
+import { clearAiKey } from "./ai.js";
 
 const SETTINGS_KEY = "settings";
 const STORES = ["decks", "cards", "cardState", "ink", "kv"];
@@ -27,6 +28,7 @@ export async function restoreBackup(raw) {
 export async function wipeAll() {
   await db.replaceStores(Object.fromEntries(STORES.map((s) => [s, []])));
   localStorage.removeItem(SETTINGS_KEY);
+  clearAiKey();
 }
 
 export async function saveImported({ decks, cards }) {

@@ -5,6 +5,7 @@ import { speak } from "../tts.js";
 import { renderCardFace } from "./card-face.js";
 import { createInkLayer } from "../ink/ink-canvas.js";
 import { createToolbar } from "../ink/ink-tools.js";
+import { renderAssistant } from "./assistant.js";
 
 const SWIPE_PX = 60;
 const NOTE_SAVE_DELAY_MS = 500;
@@ -130,6 +131,7 @@ export async function render(root, { id, idx }) {
         el("button", { type: "button", "aria-label": "İngilizce seslendir", onclick: () => say(card.en.word, "en") }, ...actionContent("🔊", "EN", true))),
       toolbarHost,
       noteBox,
+      renderAssistant(noteBox),
       el("div", { class: "study-nav" },
         el("button", { type: "button", "aria-label": "Önceki kart", disabled: i === 0, onclick: () => go(-1) }, "← Geri"),
         el("button", { type: "button", class: "btn-primary", "aria-label": "Sonraki kart", disabled: i === cards.length - 1, onclick: () => go(1) }, "İleri →")));
