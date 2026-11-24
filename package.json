@@ -1,0 +1,17 @@
+{
+  "name": "almanca-kartlar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\"",
+    "smoke": "node tests/smoke.mjs",
+    "layout": "node tests/layout.mjs",
+    "screens": "node tests/screens.mjs",
+    "palettes": "node tests/palettes.mjs",
+    "assistant": "node tests/assistant.mjs",
+    "security": "node tests/security.mjs",
+    "dist": "node tools/make-dist.mjs",
+    "bump": "node tools/bump-version.mjs",
+    "build:content": "node tools/assign-topics.mjs && node tools/build-content.mjs"
+  }
+}
