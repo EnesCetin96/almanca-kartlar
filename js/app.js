@@ -1,7 +1,7 @@
 import { openDb } from "./db.js";
 import { seedIfNeeded, getSetting, setSetting } from "./store.js";
 import { buildNav, startRouter } from "./router.js";
-import { toast, applyTheme } from "./ui.js";
+import { toast, applyTheme, applyPalette } from "./ui.js";
 import { initTts } from "./tts.js";
 
 function registerServiceWorker() {
@@ -25,6 +25,7 @@ function registerServiceWorker() {
 
 async function main() {
   applyTheme(getSetting("theme"));
+  applyPalette(getSetting("palette"));
   if (!getSetting("firstRunAt")) setSetting("firstRunAt", new Date().toISOString());
   buildNav(document.getElementById("nav"));
   initTts();

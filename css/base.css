@@ -90,3 +90,9 @@ input, textarea, select { font-size: 16px; } /* >=16px avoids iOS focus zoom */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* Progress bars follow the palette (the native grey track clashed with warm themes). */
+progress { appearance: none; -webkit-appearance: none; border: 0; border-radius: 999px; overflow: hidden; background: var(--surface-2); }
+progress::-webkit-progress-bar { background: var(--surface-2); border-radius: 999px; }
+progress::-webkit-progress-value { background: var(--primary); border-radius: 999px; }
+progress::-moz-progress-bar { background: var(--primary); border-radius: 999px; }

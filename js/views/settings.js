@@ -1,4 +1,4 @@
-import { el, toast, applyTheme } from "../ui.js";
+import { el, toast, applyTheme, applyPalette, PALETTES } from "../ui.js";
 import { getSetting, setSetting, getProgress, saveProgress } from "../store.js";
 import { wipeAll } from "../backup.js";
 import { speak, voicesFor } from "../tts.js";
@@ -100,6 +100,7 @@ export async function render(root) {
       el("button", { type: "button", onclick: () => { const e = speak("Guten Tag. Hello.", "de"); if (e) toast(e); } }, "🔊 Dene")),
     el("section", { class: "card" },
       el("h2", { style: "margin-top:0" }, "Görünüm ve el yazısı"),
+      selectRow("Renk paleti", "palette", PALETTES.map(([value, label]) => [value, label]), applyPalette),
       selectRow("Tema", "theme", [["system", "Sistem"], ["light", "Açık"], ["dark", "Koyu"]], applyTheme),
       checkRow("Sadece Apple Pencil ile çiz", "penOnly", "(parmak çizmez)")),
     el("section", { class: "card" }, (() => { const box = el("div"); renderDataTools(box); return box; })(),

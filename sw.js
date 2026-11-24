@@ -1,9 +1,9 @@
 // Bump VERSION on every release; keep ASSETS in sync with files the app loads.
-const VERSION = "v15";
+const VERSION = "v16";
 const CACHE = `kartlar-${VERSION}`;
 const ASSETS = [
   "./", "index.html", "manifest.webmanifest",
-  "css/tokens.css", "css/base.css", "css/layout.css", "css/card.css", "css/session.css",
+  "css/tokens.css", "css/palettes.css", "css/base.css", "css/layout.css", "css/card.css", "css/session.css",
   "js/app.js", "js/db.js", "js/store.js", "js/ui.js", "js/router.js", "js/tts.js",
   "js/srs.js", "js/practice.js", "js/progress.js", "js/sources.js", "js/sfx.js", "js/importers.js", "js/backup.js",
   "js/views/category.js", "js/views/add-edit.js", "js/views/settings.js", "js/views/data-tools.js",

@@ -1,23 +1,25 @@
+/* Default palette: "Kahve & Turkuaz" (warm cream + dark turquoise, yellow highlights, burgundy for "die").
+   Other palettes live in palettes.css and are picked with <html data-palette="...">. */
 :root {
   color-scheme: light dark;
-  --bg: #f5f6fb;
-  --surface: #ffffff;
-  --surface-2: #eceef7;
-  --text: #1b1d2e;
-  --text-dim: #565a73;
-  --primary: #4f46e5;
-  --primary-soft: #eceefe;
+  --bg: #f7f0e4;
+  --surface: #fffaf1;
+  --surface-2: #efe4d2;
+  --text: #2b2017;
+  --text-dim: #65574a;
+  --primary: #0b7075;
+  --primary-soft: #fbedc0;
   --primary-text: #ffffff;
-  --border: #d9dcec;
-  --ok: #15803d;
-  --ok-bg: #dcfce7;
-  --bad: #b91c1c;
-  --bad-bg: #fee2e2;
-  --der: #1d4ed8;
-  --die: #b91c1c;
-  --das: #15803d;
+  --border: #e0d3bd;
+  --ok: #28704a;
+  --ok-bg: #e1f0dc;
+  --bad: #a3263d;
+  --bad-bg: #f8dfe0;
+  --der: #1d4a78;
+  --die: #9b2842;
+  --das: #1f7a4a;
   --radius: 18px;
-  --shadow: 0 4px 16px rgb(30 30 70 / 0.08);
+  --shadow: 0 4px 16px rgb(60 40 20 / 0.1);
   --tap: 44px;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", sans-serif;
 }
@@ -28,42 +30,42 @@
 /* Dark tokens: automatic (system) unless the user forced light, or forced dark. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #11121c;
-    --surface: #1b1d2e;
-    --surface-2: #26293f;
-    --text: #eef0fb;
-    --text-dim: #aab0cc;
-    --primary: #8b85ff;
-    --primary-soft: #2a2950;
-    --primary-text: #11121c;
-    --border: #33375a;
-    --ok: #4ade80;
-    --ok-bg: #12301f;
-    --bad: #f87171;
-    --bad-bg: #3a1717;
-    --der: #7aa2ff;
-    --die: #ff8f8f;
-    --das: #5fe08d;
-    --shadow: 0 4px 16px rgb(0 0 0 / 0.4);
+    --bg: #1b1510;
+    --surface: #261e17;
+    --surface-2: #32281e;
+    --text: #f4eadc;
+    --text-dim: #c0ae98;
+    --primary: #3cc4be;
+    --primary-soft: #3a3118;
+    --primary-text: #0d1f1e;
+    --border: #43372a;
+    --ok: #6fd79a;
+    --ok-bg: #1b3324;
+    --bad: #ff8a9b;
+    --bad-bg: #3e1c22;
+    --der: #82b4ee;
+    --die: #ff8fa3;
+    --das: #6fd79a;
+    --shadow: 0 4px 16px rgb(0 0 0 / 0.45);
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #11121c;
-  --surface: #1b1d2e;
-  --surface-2: #26293f;
-  --text: #eef0fb;
-  --text-dim: #aab0cc;
-  --primary: #8b85ff;
-  --primary-soft: #2a2950;
-  --primary-text: #11121c;
-  --border: #33375a;
-  --ok: #4ade80;
-  --ok-bg: #12301f;
-  --bad: #f87171;
-  --bad-bg: #3a1717;
-  --der: #7aa2ff;
-  --die: #ff8f8f;
-  --das: #5fe08d;
-  --shadow: 0 4px 16px rgb(0 0 0 / 0.4);
+  --bg: #1b1510;
+  --surface: #261e17;
+  --surface-2: #32281e;
+  --text: #f4eadc;
+  --text-dim: #c0ae98;
+  --primary: #3cc4be;
+  --primary-soft: #3a3118;
+  --primary-text: #0d1f1e;
+  --border: #43372a;
+  --ok: #6fd79a;
+  --ok-bg: #1b3324;
+  --bad: #ff8a9b;
+  --bad-bg: #3e1c22;
+  --der: #82b4ee;
+  --die: #ff8fa3;
+  --das: #6fd79a;
+  --shadow: 0 4px 16px rgb(0 0 0 / 0.45);
 }

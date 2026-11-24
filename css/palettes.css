@@ -1,0 +1,69 @@
+/* Alternative palettes, chosen with <html data-palette="...">. Each has a light and a dark set;
+   the dark set applies with the system dark mode (unless light is forced) or with data-theme="dark".
+   Rule: text colours keep >= 4.5:1 contrast on their backgrounds; accents stay out of the way of the words. */
+
+/* Bordo & Altın: burgundy buttons, gold highlights, warm brown text */
+:root[data-palette="bordo"] {
+  --bg: #faf1ea; --surface: #fffaf6; --surface-2: #f1e1d6; --text: #2d1b1b; --text-dim: #6a5050;
+  --primary: #86203c; --primary-soft: #f9e6b0; --primary-text: #ffffff; --border: #e6d0c2;
+  --ok: #28704a; --ok-bg: #e1f0dc; --bad: #b3261e; --bad-bg: #fbe0dc;
+  --der: #1d4a78; --die: #86203c; --das: #1f7a4a; --shadow: 0 4px 16px rgb(70 25 30 / 0.1);
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-palette="bordo"]:not([data-theme="light"]) {
+    --bg: #1c1114; --surface: #281a1e; --surface-2: #35232a; --text: #f7ebe9; --text-dim: #cdb1b3;
+    --primary: #f0bf55; --primary-soft: #4a2230; --primary-text: #2a1a05; --border: #4a3037;
+    --ok: #6fd79a; --ok-bg: #1b3324; --bad: #ff8f86; --bad-bg: #44201f;
+    --der: #86b6f0; --die: #ff90a6; --das: #6fd79a; --shadow: 0 4px 16px rgb(0 0 0 / 0.45);
+  }
+}
+:root[data-palette="bordo"][data-theme="dark"] {
+  --bg: #1c1114; --surface: #281a1e; --surface-2: #35232a; --text: #f7ebe9; --text-dim: #cdb1b3;
+  --primary: #f0bf55; --primary-soft: #4a2230; --primary-text: #2a1a05; --border: #4a3037;
+  --ok: #6fd79a; --ok-bg: #1b3324; --bad: #ff8f86; --bad-bg: #44201f;
+  --der: #86b6f0; --die: #ff90a6; --das: #6fd79a; --shadow: 0 4px 16px rgb(0 0 0 / 0.45);
+}
+
+/* Lacivert & Turkuaz: navy buttons on warm paper, turquoise highlights */
+:root[data-palette="lacivert"] {
+  --bg: #f4f1ea; --surface: #fffdf8; --surface-2: #e9e6dc; --text: #14233a; --text-dim: #4d5b70;
+  --primary: #1f3d66; --primary-soft: #d3efec; --primary-text: #ffffff; --border: #d8d6cb;
+  --ok: #1b7050; --ok-bg: #dcf1e6; --bad: #a3263d; --bad-bg: #f8dfe0;
+  --der: #2a5ea5; --die: #9b2842; --das: #0b7075; --shadow: 0 4px 16px rgb(20 35 60 / 0.1);
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-palette="lacivert"]:not([data-theme="light"]) {
+    --bg: #0e1824; --surface: #162434; --surface-2: #1f3147; --text: #edf2f8; --text-dim: #a8b7ca;
+    --primary: #4fd3c8; --primary-soft: #17414a; --primary-text: #082126; --border: #2c4059;
+    --ok: #6fd79a; --ok-bg: #173226; --bad: #ff8f9e; --bad-bg: #3d1d25;
+    --der: #8fb8ee; --die: #ff93a8; --das: #5fe0d4; --shadow: 0 4px 16px rgb(0 0 0 / 0.45);
+  }
+}
+:root[data-palette="lacivert"][data-theme="dark"] {
+  --bg: #0e1824; --surface: #162434; --surface-2: #1f3147; --text: #edf2f8; --text-dim: #a8b7ca;
+  --primary: #4fd3c8; --primary-soft: #17414a; --primary-text: #082126; --border: #2c4059;
+  --ok: #6fd79a; --ok-bg: #173226; --bad: #ff8f9e; --bad-bg: #3d1d25;
+  --der: #8fb8ee; --die: #ff93a8; --das: #5fe0d4; --shadow: 0 4px 16px rgb(0 0 0 / 0.45);
+}
+
+/* Klasik: the original indigo look */
+:root[data-palette="klasik"] {
+  --bg: #f5f6fb; --surface: #ffffff; --surface-2: #eceef7; --text: #1b1d2e; --text-dim: #565a73;
+  --primary: #4f46e5; --primary-soft: #eceefe; --primary-text: #ffffff; --border: #d9dcec;
+  --ok: #15803d; --ok-bg: #dcfce7; --bad: #b91c1c; --bad-bg: #fee2e2;
+  --der: #1d4ed8; --die: #b91c1c; --das: #15803d; --shadow: 0 4px 16px rgb(30 30 70 / 0.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-palette="klasik"]:not([data-theme="light"]) {
+    --bg: #11121c; --surface: #1b1d2e; --surface-2: #26293f; --text: #eef0fb; --text-dim: #aab0cc;
+    --primary: #8b85ff; --primary-soft: #2a2950; --primary-text: #11121c; --border: #33375a;
+    --ok: #4ade80; --ok-bg: #12301f; --bad: #f87171; --bad-bg: #3a1717;
+    --der: #7aa2ff; --die: #ff8f8f; --das: #5fe08d; --shadow: 0 4px 16px rgb(0 0 0 / 0.4);
+  }
+}
+:root[data-palette="klasik"][data-theme="dark"] {
+  --bg: #11121c; --surface: #1b1d2e; --surface-2: #26293f; --text: #eef0fb; --text-dim: #aab0cc;
+  --primary: #8b85ff; --primary-soft: #2a2950; --primary-text: #11121c; --border: #33375a;
+  --ok: #4ade80; --ok-bg: #12301f; --bad: #f87171; --bad-bg: #3a1717;
+  --der: #7aa2ff; --die: #ff8f8f; --das: #5fe08d; --shadow: 0 4px 16px rgb(0 0 0 / 0.4);
+}

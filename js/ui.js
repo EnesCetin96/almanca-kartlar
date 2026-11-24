@@ -17,6 +17,21 @@ export function applyTheme(theme) {
   else delete document.documentElement.dataset.theme;
 }
 
+/** [value, label, address-bar colour]. "kahve" is the default and needs no data-palette attribute. */
+export const PALETTES = Object.freeze([
+  ["kahve", "Kahve & Turkuaz", "#0b7075"],
+  ["bordo", "Bordo & Altın", "#86203c"],
+  ["lacivert", "Lacivert & Turkuaz", "#1f3d66"],
+  ["klasik", "Klasik (indigo)", "#4f46e5"],
+]);
+
+export function applyPalette(palette) {
+  const known = PALETTES.find(([value]) => value === palette) ?? PALETTES[0];
+  if (known[0] === PALETTES[0][0]) delete document.documentElement.dataset.palette;
+  else document.documentElement.dataset.palette = known[0];
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", known[2]);
+}
+
 export function toast(message, action) {
   const host = document.getElementById("toast");
   const item = el("div", { class: "toast-item" }, el("span", {}, message));
