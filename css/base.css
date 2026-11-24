@@ -1,0 +1,92 @@
+* { box-sizing: border-box; }
+
+html, body { margin: 0; height: 100%; }
+
+body {
+  font: 18px/1.5 var(--font);
+  background: var(--bg);
+  color: var(--text);
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+  overflow-wrap: break-word; /* long German compounds must never push the layout wider */
+}
+
+[lang="de"] { -webkit-hyphens: auto; hyphens: auto; }
+
+h1 { font-size: 2rem; margin: 0 0 .5rem; }
+h2 { font-size: 1.25rem; margin: 1.5rem 0 .5rem; }
+p { margin: 0 0 .75rem; }
+a { color: var(--primary); }
+
+button, input, select, textarea { font: inherit; color: inherit; }
+
+button, .btn {
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding: 0 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-text);
+  border-color: transparent;
+  font-weight: 700;
+  min-height: 52px;
+  font-size: 1.05rem;
+}
+
+button:disabled, .btn[aria-disabled="true"] { opacity: .5; cursor: default; }
+
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+
+input, textarea, select { font-size: 16px; } /* >=16px avoids iOS focus zoom */
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.25rem;
+}
+
+.dim { color: var(--text-dim); }
+.empty { text-align: center; color: var(--text-dim); padding: 2rem 1rem; }
+
+.art-der { color: var(--der); }
+.art-die { color: var(--die); }
+.art-das { color: var(--das); }
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom) + 84px);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  z-index: 50;
+}
+.toast-item {
+  background: var(--text);
+  color: var(--bg);
+  padding: .6rem 1rem;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  box-shadow: var(--shadow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
