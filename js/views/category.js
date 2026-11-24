@@ -1,6 +1,7 @@
 // Category level of the library: categories -> topics (decks) -> words. Route: #/category/<id>
 import { el } from "../ui.js";
 import { listCategories, listDecks, listCards, listStates } from "../store.js";
+import { safeColor } from "../importers.js";
 
 const OWN = { id: "own", name: "Kendi kartlarım", icon: "✏️", description: "Kendi eklediğin kartlar" };
 const link = (href, ...kids) => el("a", { class: "card tile", href }, ...kids);
@@ -51,7 +52,7 @@ export async function render(root, { id }) {
     el("div", { class: "grid" }, topics.map((d) => {
       const s = stats([d]);
       return link(`#/deck/${encodeURIComponent(d.id)}`,
-        el("h2", { style: `margin:0 0 .25rem;border-left:6px solid ${d.color};padding-left:.5rem` }, d.name),
+        el("h2", { style: `margin:0 0 .25rem;border-left:6px solid ${safeColor(d.color)};padding-left:.5rem` }, d.name),
         el("p", { class: "dim" }, d.description),
         el("p", {}, `${s.cards} kart · %${s.pct} öğrenildi`),
         el("progress", { max: 100, value: s.pct, "aria-label": "Öğrenilen yüzdesi" }));

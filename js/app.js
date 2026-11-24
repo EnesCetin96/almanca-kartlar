@@ -1,7 +1,7 @@
 import { openDb } from "./db.js";
 import { seedIfNeeded, getSetting, setSetting } from "./store.js";
 import { buildNav, startRouter } from "./router.js";
-import { toast, applyTheme, applyPalette } from "./ui.js";
+import { el, toast, applyTheme, applyPalette } from "./ui.js";
 import { initTts } from "./tts.js";
 
 function registerServiceWorker() {
@@ -24,6 +24,11 @@ function registerServiceWorker() {
 }
 
 async function main() {
+  // Clickjacking guard (GitHub Pages cannot send frame-ancestors): never run inside another site's frame.
+  if (window.top !== window.self) {
+    document.body.replaceChildren(el("p", { style: "padding:1rem" }, "Bu uygulama başka bir sayfanın içinde çalışmaz. ", el("a", { href: location.href, target: "_top", rel: "noopener" }, "Doğrudan aç")));
+    return;
+  }
   applyTheme(getSetting("theme"));
   applyPalette(getSetting("palette"));
   if (!getSetting("firstRunAt")) setSetting("firstRunAt", new Date().toISOString());

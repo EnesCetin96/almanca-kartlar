@@ -1,5 +1,5 @@
 // Bump VERSION on every release; keep ASSETS in sync with files the app loads.
-const VERSION = "v17";
+const VERSION = "v18";
 const CACHE = `kartlar-${VERSION}`;
 const ASSETS = [
   "./", "index.html", "manifest.webmanifest",

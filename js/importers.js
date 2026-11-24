@@ -10,6 +10,9 @@ const MAX_SENTENCES = 3;
 const DECK_COLORS = ["#4f46e5", "#0d9488", "#d97706", "#db2777", "#2563eb", "#16a34a"];
 
 const str = (v) => (typeof v === "string" ? v.trim() : "");
+/** Deck colours end up in a style attribute, so only plain hex colours are allowed (blocks CSS injection from files). */
+export const safeColor = (v, fallback = DECK_COLORS[0]) => (typeof v === "string" && /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(v) ? v : fallback);
+const cleanDeck = (d) => ({ ...d, id: str(d.id), name: str(d.name).slice(0, MAX_TEXT), description: str(d.description).slice(0, MAX_TEXT), color: safeColor(d.color) });
 const isText = (v) => typeof v === "string" && v.length <= MAX_TEXT;
 const keyOf = (deckId, word) => `${deckId}|${word.trim().toLowerCase()}`;
 
@@ -140,7 +143,7 @@ export function importJson(text, { decks, cards, newId }) {
   const created = [];
   for (const d of Array.isArray(data?.decks) ? data.decks : []) {
     if (d && str(d.id) && str(d.name) && !known.has(str(d.id))) {
-      const deck = { id: str(d.id), name: str(d.name), description: str(d.description), color: str(d.color) || DECK_COLORS[0] };
+      const deck = { id: str(d.id), name: str(d.name), description: str(d.description), color: safeColor(d.color) };
       known.set(deck.id, deck);
       created.push(deck);
     }
@@ -182,7 +185,7 @@ export function validateBackup(raw) {
     return check.ok && str(c.id) && str(c.deckId);
   }).map((c) => ({ ...c, ...validateCard(c).card, createdAt: c.createdAt, updatedAt: c.updatedAt }));
   const data = {
-    decks: keep(raw.decks, (d) => d && str(d.id) && str(d.name)),
+    decks: keep(raw.decks, (d) => d && str(d.id) && str(d.name)).map(cleanDeck),
     cards,
     cardState: keep(raw.cardState, (s) => s && str(s.cardId) && s.srs && typeof s.srs === "object" && s.stats && typeof s.stats === "object"),
     ink: keep(raw.ink, (n) => n && str(n.cardId) && Array.isArray(n.strokes)),

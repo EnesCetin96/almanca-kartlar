@@ -6,6 +6,7 @@ import { importCsv, importJson, CSV_TEMPLATE } from "../importers.js";
 
 const MAX_SHOWN_REASONS = 10;
 const RELOAD_DELAY_MS = 1500;
+const MAX_FILE_BYTES = 20 * 1024 * 1024;
 
 /** Shares as a file where the OS supports it (iPad: Save to Files), otherwise downloads it. */
 async function saveFile(name, text, type) {
@@ -58,7 +59,14 @@ export function renderDataTools(host) {
     }
   }
 
+  const tooBig = (file) => {
+    if (file.size <= MAX_FILE_BYTES) return false;
+    toast("Dosya çok büyük (en fazla 20 MB).");
+    return true;
+  };
+
   async function doRestore(file) {
+    if (tooBig(file)) return;
     let raw;
     try { raw = JSON.parse(await file.text()); } catch { toast("Yedek dosyası okunamadı."); return; }
     if (!confirm("Yedekteki veriler mevcut tüm verinin yerine geçecek. Devam edilsin mi?")) return;
@@ -72,6 +80,7 @@ export function renderDataTools(host) {
   }
 
   async function doImport(file) {
+    if (tooBig(file)) return;
     try {
       const text = await file.text();
       const [decks, cards] = await Promise.all([listDecks(), listCards()]);
